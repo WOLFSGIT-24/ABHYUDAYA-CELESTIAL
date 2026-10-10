@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+
+
+@theme {
+  /* Abhyudaya Celestial Luxury Brochure Palette */
+  --color-brand-blue: #D4AF37;
+  --color-brand-blue-dark: #B5952F;
+  --color-brand-green: #2c5e3b;
+  --color-brand-green-dark: #1f472b;
+
+  --color-navy-dark: #000000;
+  --color-navy-primary: #0e172a;
+  --color-navy-light: #1b263b;
+  --color-navy-card: #131e33;
+  
+  /* Gold & Champagne Accents */
+  --color-gold: #D4AF37;
+  --color-gold-light: #dfcbb3;
+  --color-gold-dark: #a38254;
+  --color-champagne: #ede3d2;
+  --color-bronze: #9c7b52;
+  
+  /* Brochure Warm Parchment & Marble Light Bases */
+  --color-parchment: #faf4e8;
+  --color-parchment-textured: #f4efe6;
+  --color-marble: #faf8f5;
+  --color-marble-light: #ffffff;
+  --color-brand-stone-beige: #e5ded3;
+  
+  /* High contrast reading colors */
+  --color-charcoal: #1c1917;
+  --color-gray-text: #4a5260;
+  
+  --font-display: "Philosopher", "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --font-serif-luxury: "Philosopher", "Cormorant Garamond", Georgia, serif;
+  --font-body: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  --animate-fade-in: fade-in 0.8s ease-out;
+  --animate-slide-up: slide-up 0.8s ease-out;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--color-marble);
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: "Philosopher", "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  text-transform: capitalize;
+  letter-spacing: -0.01em;
+}
+
+h4, h5, h6 {
+  text-transform: capitalize;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0ebe1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+
