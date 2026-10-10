@@ -15,8 +15,6 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
     preferredDate: "",
     preferredTime: "",
     source: "Website Landing Page",
-    budget: "",
-    timeline: "",
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -78,7 +76,7 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
         preferredDate: formData.preferredDate || undefined,
         preferredTime: formData.preferredTime || undefined,
         source: formData.source,
-        notes: `Budget: ${formData.budget} | Timeline: ${formData.timeline}`,
+        notes: "",
       });
 
       setLoading(false);
@@ -192,45 +190,6 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
                   {errors.email && <p className="text-red-500 text-[10px]">{errors.email}</p>}
                 </div>
 
-                {/* Budget */}
-                <div className="space-y-1">
-                  <label className="text-[10px] font-bold text-[#0E172A] uppercase tracking-wider block">
-                    What is your planned budget?
-                  </label>
-                  <select
-                    id="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    required
-                    className="w-full border border-[#E5DED3] rounded-lg px-3 py-2 bg-[#FAF8F5] text-xs sm:text-sm font-body outline-none focus:border-[#0E172A] focus:bg-white"
-                  >
-                    <option value="" disabled>Select Budget</option>
-                    <option value="₹1.5 Cr – ₹1.75 Cr">₹1.5 Cr – ₹1.75 Cr</option>
-                    <option value="₹1.75 Cr – ₹2 Cr">₹1.75 Cr – ₹2 Cr</option>
-                    <option value="Above ₹2 Cr">Above ₹2 Cr</option>
-                    <option value="Below ₹1.5 Cr">Below ₹1.5 Cr</option>
-                  </select>
-                </div>
-
-                {/* Timeline */}
-                <div className="space-y-1">
-                  <label className="text-[10px] font-bold text-[#0E172A] uppercase tracking-wider block">
-                    When are you planning to purchase?
-                  </label>
-                  <select
-                    id="timeline"
-                    value={formData.timeline}
-                    onChange={handleChange}
-                    required
-                    className="w-full border border-[#E5DED3] rounded-lg px-3 py-2 bg-[#FAF8F5] text-xs sm:text-sm font-body outline-none focus:border-[#0E172A] focus:bg-white"
-                  >
-                    <option value="" disabled>Select Timeline</option>
-                    <option value="Within 3 Months">Within 3 Months</option>
-                    <option value="Within 3–6 Months">Within 3–6 Months</option>
-                    <option value="Within 6–12 Months">Within 6–12 Months</option>
-                    <option value="Just Exploring">Just Exploring</option>
-                  </select>
-                </div>
 
                 {/* Submit Button */}
                 <div className="pt-1">

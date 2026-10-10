@@ -15,7 +15,7 @@ export default function Hero({ onOpenEnquiry, onRequestDownload }: HeroProps) {
       {/* Background Photography - Instant High-Priority LCP Render */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
-          src="/assets/silver_horizon/banner.png"
+          src="/hero.webp"
           alt="Abhyudaya Celestial Architectural Landmark"
           className="w-full h-full object-cover object-[center_top] sm:object-[center_top]"
           fetchPriority="high"

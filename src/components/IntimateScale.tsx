@@ -6,14 +6,21 @@ interface IntimateScaleProps {
 }
 
 export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: IntimateScaleProps) {
-  // Bottom Auto-Scrolling Building Images
   const autoScrollImages = [
     {
-      src: "/assets/silver_horizon/gallery_02.webp",
+      src: "/1.webp",
+      alt: "Abhyudaya Celestial Gallery 1",
+    },
+    {
+      src: "/2.webp",
       alt: "Abhyudaya Celestial Gallery 2",
     },
     {
-      src: "/assets/silver_horizon/gallery_04.webp",
+      src: "/3.webp",
+      alt: "Abhyudaya Celestial Gallery 3",
+    },
+    {
+      src: "/4.webp",
       alt: "Abhyudaya Celestial Gallery 4",
     },
   ];

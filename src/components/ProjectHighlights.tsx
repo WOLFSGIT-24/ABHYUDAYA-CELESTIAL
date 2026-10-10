@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 interface ProjectHighlightsProps {
   onRequestDownload?: () => void;
@@ -6,6 +6,16 @@ interface ProjectHighlightsProps {
 }
 
 export default function ProjectHighlights({ onRequestDownload, onOpenBooking }: ProjectHighlightsProps) {
+  const images = ["/interior/1.webp", "/interior/2.webp", "/interior/3.webp"];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
   return (
     <section id="highlights" className="w-full relative bg-[#FAF8F5] overflow-hidden py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
@@ -61,14 +71,33 @@ export default function ProjectHighlights({ onRequestDownload, onOpenBooking }: 
             </div>
           </div>
 
-          {/* Right Image */}
-          <div className="lg:col-span-5 h-full relative min-h-[400px] rounded-2xl overflow-hidden shadow-2xl">
-            <img
-              src="/assets/silver_horizon/second-sec.png"
-              alt="Abhyudaya Celestial Highlights"
-              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-              loading="lazy"
-            />
+          {/* Right Image Slider */}
+          <div className="lg:col-span-5 h-full relative min-h-[400px] lg:min-h-[550px] rounded-2xl overflow-hidden shadow-2xl">
+            {images.map((src, idx) => (
+              <img
+                key={idx}
+                src={src}
+                alt={`Interior View ${idx + 1}`}
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+                  idx === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+                }`}
+                loading="lazy"
+              />
+            ))}
+            
+            {/* Slider Dots */}
+            <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-3 z-20">
+              {images.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                    idx === currentIndex ? "bg-[#D4AF37] w-8" : "bg-white/60 hover:bg-white"
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
           </div>
 
         </div>

@@ -22,51 +22,27 @@ export default function FloorPlans({
   // Residence cards with exact floor plan blueprint images and brochure data
   const residenceCards = [
     {
-      unitData: { ...floorPlansData[0], title: "Typical Floor - Unit 1", imageUrl: "/assets/silver_horizon/floor_plan_typical_1.webp" },
-      image: "/assets/silver_horizon/floor_plan_typical_1.webp",
+      unitData: { ...floorPlansData[0], title: "Typical Floor - Unit 1", imageUrl: "/floor_plans/1.webp" },
+      image: "/floor_plans/1.webp",
       tag: "Typical Floor",
       name: "Unit 1",
       location: "Standard Layout",
       sizeBadge: "Explore",
     },
     {
-      unitData: { ...floorPlansData[1], title: "Typical Floor - Unit 2", imageUrl: "/assets/silver_horizon/floor_plan_typical_2.webp" },
-      image: "/assets/silver_horizon/floor_plan_typical_2.webp",
+      unitData: { ...floorPlansData[1], title: "Typical Floor - Unit 2", imageUrl: "/floor_plans/2.webp" },
+      image: "/floor_plans/2.webp",
       tag: "Typical Floor",
       name: "Unit 2",
       location: "Standard Layout",
       sizeBadge: "Explore",
     },
     {
-      unitData: { ...floorPlansData[0], title: "Typical Floor - Unit 4", imageUrl: "/assets/silver_horizon/floor_plan_typical_4.webp" },
-      image: "/assets/silver_horizon/floor_plan_typical_4.webp",
+      unitData: { ...floorPlansData[0], title: "Typical Floor - Unit 3", imageUrl: "/floor_plans/3.webp" },
+      image: "/floor_plans/3.webp",
       tag: "Typical Floor",
-      name: "Unit 4",
+      name: "Unit 3",
       location: "Standard Layout",
-      sizeBadge: "Explore",
-    },
-    {
-      unitData: { ...floorPlansData[1], title: "Private Terrace - Unit 1", imageUrl: "/assets/silver_horizon/floor_plan_terrace_1.webp" },
-      image: "/assets/silver_horizon/floor_plan_terrace_1.webp",
-      tag: "Private Terrace",
-      name: "Unit 1",
-      location: "Terrace Access",
-      sizeBadge: "Explore",
-    },
-    {
-      unitData: { ...floorPlansData[0], title: "Private Terrace - Unit 2", imageUrl: "/assets/silver_horizon/floor_plan_terrace_2.webp" },
-      image: "/assets/silver_horizon/floor_plan_terrace_2.webp",
-      tag: "Private Terrace",
-      name: "Unit 2",
-      location: "Terrace Access",
-      sizeBadge: "Explore",
-    },
-    {
-      unitData: { ...floorPlansData[1], title: "Private Terrace - Unit 4", imageUrl: "/assets/silver_horizon/floor_plan_terrace_4.webp" },
-      image: "/assets/silver_horizon/floor_plan_terrace_4.webp",
-      tag: "Private Terrace",
-      name: "Unit 4",
-      location: "Terrace Access",
       sizeBadge: "Explore",
     },
   ];
@@ -74,11 +50,11 @@ export default function FloorPlans({
   const totalCards = residenceCards.length;
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1 >= totalCards - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev + 1 >= totalCards ? 0 : prev + 1));
   };
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? totalCards - 2 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? totalCards - 1 : prev - 1));
   };
 
   const handleCardClick = (plan: FloorPlanUnit) => {
@@ -124,20 +100,7 @@ export default function FloorPlans({
               </div>
             </div>
 
-            <p className="text-sm text-gray-500 leading-relaxed font-normal pt-2">
-              Explore the detailed floor plans, current inventory, and complete pricing information.
-            </p>
-            <div>
-              <button
-                onClick={() => {
-                  if (onOpenBooking) onOpenBooking();
-                  else onUnlockRequest();
-                }}
-                className="bg-[#D4AF37] hover:bg-[#B5952F] text-white font-body text-xs sm:text-sm font-semibold px-8 py-3.5 rounded-full transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer tracking-wide inline-flex items-center justify-center"
-              >
-                Download Floor Plans & Price List
-              </button>
-            </div>
+
           </div>
 
         </div>
@@ -156,12 +119,7 @@ export default function FloorPlans({
                 onClick={() => handleCardClick(item.unitData)}
                 className="w-[85vw] sm:w-[44vw] lg:w-[calc(33.333%-16px)] shrink-0 aspect-[4/5] sm:aspect-[3/4] relative rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 cursor-pointer group bg-white border border-gray-200/80 flex flex-col justify-between p-4 sm:p-5"
               >
-                {/* Top-Right Floating Pill Badge */}
-                <div className="relative z-10 flex justify-end">
-                  <span className="bg-[#0E172A] text-white text-[11px] sm:text-xs font-semibold px-3.5 py-1.5 rounded-full shadow-sm">
-                    {item.tag}
-                  </span>
-                </div>
+
 
                 {/* Floor Plan Blueprint Image Container */}
                 <div className="absolute inset-0 flex items-center justify-center p-6 pt-12 pb-24 bg-white">
@@ -174,7 +132,7 @@ export default function FloorPlans({
                 </div>
 
                 {/* Bottom Floating Card matching screenshot */}
-                <div className="relative z-10 bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-lg border border-gray-200/60 flex items-center justify-between gap-3 transition-transform duration-300 group-hover:-translate-y-1">
+                <div className="relative z-10 mt-auto bg-white/95 backdrop-blur-md rounded-2xl p-4 sm:p-5 shadow-lg border border-gray-200/60 flex items-center justify-between gap-3 transition-transform duration-300 group-hover:-translate-y-1">
                   <div className="min-w-0 flex-1">
                     <h4 className="text-base sm:text-lg font-medium text-[#000000] tracking-tight truncate">
                       {item.name}
@@ -184,7 +142,6 @@ export default function FloorPlans({
                       <span className="truncate">{item.location}</span>
                     </p>
                   </div>
-
                   <div className="shrink-0 bg-[#E8E1CE] text-[#42392E] font-semibold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-xl shadow-xs">
                     {item.sizeBadge}
                   </div>
@@ -196,7 +153,7 @@ export default function FloorPlans({
         </div>
 
         {/* Bottom Centered Circular Arrow Navigation Controls matching screenshot */}
-        <div className="flex justify-center items-center gap-3 pt-8 sm:pt-10">
+        <div className="flex lg:hidden justify-center items-center gap-3 pt-8 sm:pt-10">
           <button
             onClick={prevSlide}
             className="w-12 h-12 rounded-full bg-[#D4AF37] hover:bg-[#B5952F] text-white flex items-center justify-center transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer"
