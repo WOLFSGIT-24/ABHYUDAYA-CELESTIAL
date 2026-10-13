@@ -68,10 +68,12 @@ export default function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyMod
           <div className="space-y-2">
             <h3 className="font-display text-lg font-bold text-[#0E172A]">4. Official Developer Contact</h3>
             <ul className="list-none space-y-1.5 text-xs text-[#000000] bg-[#FAF8F5] p-4 rounded-xl border border-[#E5DED3]">
-              <li><strong>Project:</strong> Abhyudaya Celestial (3 BHK Luxury Residences)</li>
+              <li><strong>Project:</strong> Abhyudaya Celestial (3 BHK Residences)</li>
               <li><strong>Developer:</strong> {projectSnapshot.developerFull}</li>
-              <li><strong>Address:</strong> {projectSnapshot.address}</li>
-              <li><strong>Phone:</strong> {projectSnapshot.phonePrimary} | {projectSnapshot.phoneSecondary}</li>
+              <li><strong>UP RERA Reg No:</strong> {projectSnapshot.reraNumber}</li>
+              <li><strong>Project Site Address:</strong> {projectSnapshot.projectAddress}</li>
+              <li><strong>Office Address:</strong> {projectSnapshot.officeAddress}</li>
+              <li><strong>Phone:</strong> {projectSnapshot.phonePrimary}</li>
               <li><strong>Email:</strong> {projectSnapshot.email}</li>
             </ul>
           </div>

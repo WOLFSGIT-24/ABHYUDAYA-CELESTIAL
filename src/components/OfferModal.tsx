@@ -13,7 +13,7 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
     fullName: "",
     email: "",
     phone: "",
-    unitPreference: "3 BHK (1890 to 2015 SQFT)",
+    unitPreference: "3 BHK (Approx. 1,107 sq. ft.)",
     agree: true,
   });
   const [loading, setLoading] = useState(false);
@@ -122,14 +122,19 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
         {!submitted ? (
           <form onSubmit={handleSubmit} className="flex flex-col overflow-y-auto">
             <div className="p-5 sm:p-7 pb-4 bg-[#0E172A] text-white border-b border-white/10 shrink-0">
-              <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#D4AF37]">
-                Abhyudaya
-              </span>
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] uppercase font-bold tracking-[0.2em] text-[#D4AF37]">
+                  {projectSnapshot.developerFull}
+                </span>
+                <span className="text-[10px] text-white/60 font-mono">
+                  RERA: {projectSnapshot.reraNumber}
+                </span>
+              </div>
               <h3 className="font-display text-lg sm:text-xl font-bold text-white mt-0.5">
                 Experience Abhyudaya Celestial
               </h3>
               <p className="font-body text-xs text-white/70 mt-1 leading-relaxed">
-                Connect directly with our relationship manager for floor plans, custom pricing, and private site walkthroughs.
+                Connect directly with our team for pricing, official site visits at Shaheed Path, and verified layouts.
               </p>
             </div>
 
@@ -203,8 +208,8 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
                   onChange={handleChange}
                   className="w-full bg-[#FAF8F5] border border-[#E5DED3] rounded-lg px-3.5 py-2.5 text-sm outline-none focus:border-[#0E172A] focus:bg-white font-body"
                 >
-                  <option value="3 BHK (1890 to 2015 SQFT)">3 BHK Residences (1890 to 2015 SQFT)</option>
-                  <option value="4 BHK Duplex (2975 to 3480 SQFT)">4 BHK Duplex Sky Collection (32nd Floor)</option>
+                  <option value="3 BHK (Approx. 1,107 sq. ft.)">3 BHK Residence (Approx. 1,107 sq. ft.)</option>
+                  <option value="3 BHK + Servant (Approx. 1,428 sq. ft.)">3 BHK + Servant Residence (Approx. 1,428 sq. ft.)</option>
                   <option value="All Configurations">Explore All Configurations</option>
                 </select>
               </div>

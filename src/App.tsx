@@ -11,6 +11,7 @@ const Amenities = lazy(() => import("./components/Amenities"));
 const ProjectHighlights = lazy(() => import("./components/ProjectHighlights"));
 const FloorPlans = lazy(() => import("./components/FloorPlans"));
 const Location = lazy(() => import("./components/Location"));
+const ProjectDetails = lazy(() => import("./components/ProjectDetails"));
 const BrochureForm = lazy(() => import("./components/BrochureForm"));
 const Footer = lazy(() => import("./components/Footer"));
 
@@ -227,6 +228,11 @@ export default function App() {
         {/* Location Connectivity Grid & Regional Infrastructure */}
         <AnimatedSection>
           <Location onOpenEnquiry={handleHeroEnquiry} />
+        </AnimatedSection>
+
+        {/* Official Statutory Disclosures & Collection Account */}
+        <AnimatedSection>
+          <ProjectDetails onOpenEnquiry={handleHeroEnquiry} />
         </AnimatedSection>
 
         {/* Brochure / Lead Intake Form Section */}

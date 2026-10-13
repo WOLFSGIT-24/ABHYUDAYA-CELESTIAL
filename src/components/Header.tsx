@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { projectSnapshot } from "../data";
 
 interface HeaderProps {
   onOpenBooking: () => void;
@@ -40,11 +41,11 @@ export default function Header({ onOpenBooking, onRequestDownload }: HeaderProps
 
   const navLinks = [
     { label: "Overview", id: "overview" },
-    { label: "Landmark", id: "landmark" },
-    { label: "Master Plan", id: "master-plan" },
+    { label: "Highlights", id: "highlights" },
     { label: "Amenities", id: "amenities" },
     { label: "Floor Plans", id: "floor-plans" },
     { label: "Location", id: "location" },
+    { label: "RERA & Bank", id: "rera-details" },
   ];
 
   return (
@@ -65,7 +66,7 @@ export default function Header({ onOpenBooking, onRequestDownload }: HeaderProps
           >
             <img
               src="/assets/silver_horizon/logo.jpg"
-              alt="Smart Infra Realty Logo"
+              alt="Abhyudaya Celestial Logo"
               className="h-12 sm:h-16 md:h-20 w-auto object-contain drop-shadow-md group-hover:opacity-90 transition-opacity"
               width="160"
               height="64"
@@ -73,13 +74,13 @@ export default function Header({ onOpenBooking, onRequestDownload }: HeaderProps
           </a>
 
           {/* Center Navigation Links matching the reference structure */}
-          <nav className="hidden lg:flex items-center gap-7">
+          <nav className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={(e) => handleLinkClick(e, link.id)}
-                className="font-body text-sm font-medium text-white/90 hover:text-white transition-colors tracking-wide"
+                className="font-body text-xs xl:text-sm font-medium text-white/90 hover:text-white transition-colors tracking-wide"
               >
                 {link.label}
               </a>
@@ -88,6 +89,14 @@ export default function Header({ onOpenBooking, onRequestDownload }: HeaderProps
 
           {/* Right Action Button */}
           <div className="flex items-center gap-2 sm:gap-3">
+            <a
+              href="#rera-details"
+              className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/15 border border-[#D4AF37]/40 text-[11px] text-[#D4AF37] font-semibold tracking-wide transition-colors"
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse" />
+              <span>RERA Registered</span>
+            </a>
+
             <button
               onClick={onOpenBooking}
               className="hidden sm:inline-flex bg-[#D4AF37] hover:bg-[#B5952F] text-white font-body text-xs sm:text-sm font-semibold px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border border-white/20 transition-all shadow-md cursor-pointer tracking-wide"

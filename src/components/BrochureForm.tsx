@@ -118,11 +118,14 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
           {!formSubmitted ? (
             <>
               <div className="mb-4 space-y-1.5">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#D4AF37]/15 border border-[#D4AF37]/30 text-[#D4AF37] text-[10px] font-semibold tracking-wider uppercase mb-1">
+                  <span>UP RERA: UPRERAPRJ414462/06/2025</span>
+                </div>
                 <h3 className="text-2xl font-normal text-[#000000] leading-tight tracking-tight capitalize">
-                  Your 3 BHK at Shalimar OneWorld Starts Here
+                  Your 3 BHK at Shalimar One World Starts Here
                 </h3>
                 <p className="text-xs text-gray-500 leading-relaxed font-normal">
-                  Explore premium 3 BHK residences at Abhyudaya Celestial, Gomti Nagar Extension, Lucknow, starting from ₹1.66 Cr*. Connect with our team for the latest pricing, available floor plans, and site visit arrangements.
+                  Explore premium 3 BHK residences at GH-18, Shalimar One World Township, Shaheed Path, Lucknow, starting from ₹1.66 Cr*. Official Launch: 11 June 2025. Connect with our team for certified layouts and site visit scheduling.
                 </p>
               </div>
 
@@ -213,7 +216,7 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
                 </div>
 
                 <p className="text-center text-[10px] text-[#4A5260] font-body pt-0.5">
-                  Verified SSL Encryption • Direct from Abhyudaya
+                  Verified SSL Encryption • UP RERA: UPRERAPRJ414462/06/2025 • Abhyudaya
                 </p>
               </form>
             </>

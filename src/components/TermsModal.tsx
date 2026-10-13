@@ -53,22 +53,44 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
           <div className="space-y-2">
             <h3 className="font-display text-lg font-bold text-[#0E172A]">1. Project Representation</h3>
             <p>
-              Abhyudaya Celestial is a G+22 storey residential landmark comprising 3 BHK luxury residences (1839 & 2083 Sq.Ft) situated at Shalimar OneWorld, Gomti Nagar Extension, Lucknow. All architectural representations, master plans, floor layouts, and 3D visual renderings are artistic impressions.
+              Abhyudaya Celestial is a 29-storey residential landmark comprising premium 3 BHK residences (approx. 1,107 sq. ft. & 1,428 sq. ft. RERA carpet area) situated at GH-18, Shalimar One World Township, Shaheed Path, Lucknow, Uttar Pradesh. All architectural representations, master plans, floor layouts, and 3D visual renderings are artistic impressions.
             </p>
           </div>
 
           <div className="space-y-2">
-            <h3 className="font-display text-lg font-bold text-[#0E172A]">2. Statutory Compliance & Approvals</h3>
+            <h3 className="font-display text-lg font-bold text-[#0E172A]">2. Statutory Compliance & UP RERA</h3>
             <p>
-              The project is sanctioned with Gram Panchayath Approval, Environmental Clearances (SEIAA), KSPCB, Fire Safety NOC, and BESCOM Power sanction. All dimensions adhere to RERA carpet area standards.
+              The project is officially registered under the Real Estate (Regulation and Development) Act with the U.P. Real Estate Regulatory Authority:
             </p>
+            <ul className="list-disc pl-5 space-y-1 text-xs text-[#0E172A]">
+              <li><strong>RERA Registration Number:</strong> {projectSnapshot.reraNumber}</li>
+              <li><strong>Official UP RERA Website:</strong> <a href={projectSnapshot.reraWebsiteUrl} target="_blank" rel="noopener noreferrer" className="text-[#D4AF37] underline">{projectSnapshot.reraWebsite}</a></li>
+              <li><strong>Project Launch Date:</strong> {projectSnapshot.launchDate}</li>
+              <li>All residential dimensions and carpet areas adhere to statutory RERA standards.</li>
+            </ul>
           </div>
 
           <div className="space-y-2">
-            <h3 className="font-display text-lg font-bold text-[#0E172A]">3. Contact & Inquiries</h3>
+            <h3 className="font-display text-lg font-bold text-[#0E172A]">3. Official Banking & Payment Channel</h3>
+            <p>
+              Under statutory directives, all prospective purchasers and allottees must remit booking tokens and construction installments solely to the designated State Bank of India collection account:
+            </p>
+            <div className="p-3 bg-[#FAF8F5] rounded-xl border border-[#E5DED3] text-xs space-y-1">
+              <p><strong>Bank Name:</strong> {projectSnapshot.bankDetails.bankName}</p>
+              <p><strong>Account Name:</strong> {projectSnapshot.bankDetails.accountName}</p>
+              <p><strong>Collection Account Name:</strong> {projectSnapshot.bankDetails.collectionAccountName}</p>
+              <p><strong>Account Number:</strong> {projectSnapshot.bankDetails.accountNumber}</p>
+              <p><strong>IFSC Code:</strong> {projectSnapshot.bankDetails.ifscCode}</p>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="font-display text-lg font-bold text-[#0E172A]">4. Official Contact & Addresses</h3>
             <ul className="list-none space-y-1.5 text-xs text-[#000000] bg-[#FAF8F5] p-4 rounded-xl border border-[#E5DED3]">
-              <li><strong>Developer:</strong> Abhyudaya</li>
-              <li><strong>Contact:</strong> {projectSnapshot.phonePrimary} / {projectSnapshot.phoneSecondary}</li>
+              <li><strong>Developer:</strong> {projectSnapshot.developerFull}</li>
+              <li><strong>Project Site Address:</strong> {projectSnapshot.projectAddress}</li>
+              <li><strong>Corporate Office Address:</strong> {projectSnapshot.officeAddress}</li>
+              <li><strong>Contact:</strong> {projectSnapshot.phonePrimary}</li>
               <li><strong>Email:</strong> {projectSnapshot.email}</li>
             </ul>
           </div>

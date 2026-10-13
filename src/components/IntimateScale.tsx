@@ -38,7 +38,7 @@ export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: Inti
               About the Project
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-tight text-[#000000] leading-[1.15] capitalize">
-              Your Next Home, <br /> Within Shalimar OneWorld
+              Your Next Home, <br /> At Shalimar One World
             </h2>
           </div>
 
@@ -48,7 +48,7 @@ export default function IntimateScale({ onRequestDownload, onOpenEnquiry }: Inti
               A premium home is about more than just the apartment. The address, surroundings, and everyday convenience matter just as much.
             </p>
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
-              Abhyudaya Celestial brings thoughtfully planned 3 BHK residences to Shalimar OneWorld, Gomti Nagar Extension, offering a balance of spacious living, contemporary design, and a well-connected location.
+              Abhyudaya Celestial brings thoughtfully planned 3 BHK residences to GH-18, Shalimar One World Township, Shaheed Path, Lucknow, offering a balance of spacious living, contemporary design, and a well-connected location.
             </p>
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
               Whether you're upgrading your home or exploring a premium residential address in Lucknow, Celestial is worth a closer look.

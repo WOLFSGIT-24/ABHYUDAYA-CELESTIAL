@@ -36,8 +36,15 @@ export default function ProjectHighlights({ onRequestDownload, onOpenBooking }: 
               <div className="flex gap-4">
                 <div className="w-1.5 bg-[#D4AF37] shrink-0" />
                 <div>
+                  <h3 className="text-lg font-semibold text-[#000000]">UP RERA Approved & Launched</h3>
+                  <p className="text-sm text-gray-600 mt-1">Registered under UPRERAPRJ414462/06/2025 (Official Launch: 11 June 2025). Fully sanctioned and verifiable on www.up-rera.in.</p>
+                </div>
+              </div>
+              <div className="flex gap-4">
+                <div className="w-1.5 bg-[#D4AF37] shrink-0" />
+                <div>
                   <h3 className="text-lg font-semibold text-[#000000]">29-Storey Residential Tower</h3>
-                  <p className="text-sm text-gray-600 mt-1">A contemporary high-rise development designed for modern urban living.</p>
+                  <p className="text-sm text-gray-600 mt-1">A contemporary high-rise development designed for modern urban luxury.</p>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -50,22 +57,15 @@ export default function ProjectHighlights({ onRequestDownload, onOpenBooking }: 
               <div className="flex gap-4">
                 <div className="w-1.5 bg-[#D4AF37] shrink-0" />
                 <div>
-                  <h3 className="text-lg font-semibold text-[#000000]">Shalimar OneWorld Address</h3>
-                  <p className="text-sm text-gray-600 mt-1">The advantage of living within one of Lucknow's prominent integrated residential townships.</p>
+                  <h3 className="text-lg font-semibold text-[#000000]">Shalimar One World Address</h3>
+                  <p className="text-sm text-gray-600 mt-1">Located at GH-18, Shalimar One World Township, Shaheed Path, Lucknow with prime infrastructure.</p>
                 </div>
               </div>
               <div className="flex gap-4">
                 <div className="w-1.5 bg-[#D4AF37] shrink-0" />
                 <div>
-                  <h3 className="text-lg font-semibold text-[#000000]">Lifestyle & Recreation</h3>
-                  <p className="text-sm text-gray-600 mt-1">Dedicated spaces for fitness, relaxation, recreation, and spending time with family.</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-1.5 bg-[#D4AF37] shrink-0" />
-                <div>
-                  <h3 className="text-lg font-semibold text-[#000000]">Strategic Location</h3>
-                  <p className="text-sm text-gray-600 mt-1">Convenient access to Shaheed Path and important destinations across Lucknow.</p>
+                  <h3 className="text-lg font-semibold text-[#000000]">Strategic Location & Transit</h3>
+                  <p className="text-sm text-gray-600 mt-1">Immediate access to Shaheed Path, Ekana Stadium, Phoenix Palassio Mall, and Lucknow International Airport.</p>
                 </div>
               </div>
             </div>

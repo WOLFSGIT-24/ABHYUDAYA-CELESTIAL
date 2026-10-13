@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { X, Calendar, Sparkles, Check, Phone, Mail, User, Building } from "lucide-react";
+import { X, Calendar, Sparkles, Check, Phone, Mail, User, Building, Landmark, ShieldCheck } from "lucide-react";
 import { LeadSubmission } from "../types";
+import { projectSnapshot } from "../data";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -99,7 +100,7 @@ export default function BookingModal({
                 Unlock Abhyudaya Celestial Layouts
               </h3>
               <p className="text-[10px] text-[#EFE4D2] uppercase tracking-widest font-bold">
-                Enter your details to view full blueprints
+                UP RERA: {projectSnapshot.reraNumber} • Launch: {projectSnapshot.launchDate}
               </p>
             </div>
           </div>
@@ -197,7 +198,7 @@ export default function BookingModal({
               </button>
             </form>
           ) : (
-            <div className="text-center py-6 space-y-5 animate-fade-in">
+            <div className="text-center py-5 space-y-4 animate-fade-in">
               <div className="h-12 w-12 bg-green-50 border border-green-200 rounded-full flex items-center justify-center mx-auto text-green-600 shadow-sm">
                 <Check className="h-6 w-6" />
               </div>
@@ -206,9 +207,18 @@ export default function BookingModal({
                 <h4 className="font-display text-xl font-bold text-[#0E172A]">
                   Floor Plans Unlocked
                 </h4>
-                <p className="font-body text-xs text-[#4A5260] mt-1.5 max-w-sm mx-auto">
+                <p className="font-body text-xs text-[#4A5260] mt-1 max-w-sm mx-auto">
                   Thank you, <strong>{formData.fullName}</strong>. You now have full access to explore the Abhyudaya Celestial floor plans.
                 </p>
+              </div>
+
+              <div className="p-3 bg-[#FAF8F5] rounded-xl border border-[#E5DED3] text-left text-[11px] space-y-1">
+                <p className="font-bold text-[#0E172A] flex items-center gap-1">
+                  <ShieldCheck className="h-3.5 w-3.5 text-[#D4AF37]" />
+                  <span>Official Booking Account (SBI):</span>
+                </p>
+                <p className="text-gray-600">A/C: <span className="font-mono font-medium text-black">{projectSnapshot.bankDetails.accountNumber}</span> | IFSC: <span className="font-mono font-medium text-black">{projectSnapshot.bankDetails.ifscCode}</span></p>
+                <p className="text-gray-500 text-[10px]">Collection: {projectSnapshot.bankDetails.collectionAccountName} • State Bank of India</p>
               </div>
 
               <button
