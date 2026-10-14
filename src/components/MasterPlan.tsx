@@ -45,7 +45,7 @@ export default function MasterPlan({ onSelectUnit, onOpenBooking }: MasterPlanPr
           {/* Right Description & Action */}
           <div className="lg:col-span-6 space-y-4">
             <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-normal">
-              The Abhyudaya Celestial masterplan offers a spacious and efficient layout for premium 3 BHK and 3 BHK + Servant residences. With a 29-storey residential tower located within Shalimar OneWorld, it ensures easy access and safety, creating a perfect blend of luxury and practicality.
+              The Abhyudaya Celestial masterplan offers a spacious and efficient layout for premium 3 BHK and 3 BHK + Servant residences. With a 30-storey residential tower located within Shalimar OneWorld, it ensures easy access and safety, creating a perfect blend of luxury and practicality.
             </p>
             <div>
               <button
@@ -151,7 +151,7 @@ export default function MasterPlan({ onSelectUnit, onOpenBooking }: MasterPlanPr
                   Abhyudaya Celestial: Site Master Plan & Parking Plan
                 </h3>
                 <p className="text-xs text-gray-500">
-                  G+29 Floors • Premium 3 BHK Residences • Dedicated Parking
+                  G+30 Floors • Premium 3 BHK Residences • Dedicated Parking
                 </p>
               </div>
               <button

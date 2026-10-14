@@ -53,7 +53,7 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
           <div className="space-y-2">
             <h3 className="font-display text-lg font-bold text-[#0E172A]">1. Project Representation</h3>
             <p>
-              Abhyudaya Celestial is a 29-storey residential landmark comprising premium 3 BHK residences (approx. 1,107 sq. ft. & 1,428 sq. ft. RERA carpet area) situated at GH-18, Shalimar One World Township, Shaheed Path, Lucknow, Uttar Pradesh. All architectural representations, master plans, floor layouts, and 3D visual renderings are artistic impressions.
+              Abhyudaya Celestial is a 30-storey residential landmark comprising premium 3 BHK residences (approx. 1,107 sq. ft. & 1,428 sq. ft. RERA carpet area) situated at GH-18, Shalimar One World Township, Shaheed Path, Lucknow, Uttar Pradesh. All architectural representations, master plans, floor layouts, and 3D visual renderings are artistic impressions.
             </p>
           </div>
 

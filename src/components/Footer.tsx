@@ -32,7 +32,7 @@ export default function Footer({ onOpenPrivacy, onOpenTerms, onOpenBooking }: Fo
               className="h-12 sm:h-16 w-auto object-contain"
             />
             <p className="text-xl sm:text-2xl md:text-3xl font-normal text-white/90 tracking-tight leading-snug">
-              A new benchmark in elevated living. 29 storeys of luxury at Shalimar One World, Shaheed Path, Lucknow.
+              A new benchmark in elevated living. 30 storeys of luxury at Shalimar One World, Shaheed Path, Lucknow.
             </p>
           </div>
 

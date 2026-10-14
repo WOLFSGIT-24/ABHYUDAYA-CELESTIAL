@@ -43,7 +43,7 @@ export default function ProjectHighlights({ onRequestDownload, onOpenBooking }: 
               <div className="flex gap-4">
                 <div className="w-1.5 bg-[#D4AF37] shrink-0" />
                 <div>
-                  <h3 className="text-lg font-semibold text-[#000000]">29-Storey Residential Tower</h3>
+                  <h3 className="text-lg font-semibold text-[#000000]">30-Storey Residential Tower</h3>
                   <p className="text-sm text-gray-600 mt-1">A contemporary high-rise development designed for modern urban luxury.</p>
                 </div>
               </div>

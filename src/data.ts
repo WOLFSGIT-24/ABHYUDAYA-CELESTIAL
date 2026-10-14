@@ -36,8 +36,8 @@ export const projectSnapshot = {
   phoneRaw: "9876543210",
   email: "info@abhyudayacelestial.com",
   website: "www.abhyudayacelestial.com",
-  storeyCount: "29-Storey Residential Tower",
-  totalFloors: "29 Floors",
+  storeyCount: "30-Storey Residential Tower",
+  totalFloors: "30 Floors",
   flatsCount: "Premium Residences",
   openSpace: "Landscaped Green Areas",
   ceilingHeight: "Spacious Layouts",
@@ -51,7 +51,7 @@ export const projectSnapshot = {
 };
 
 export const keyHighlights = [
-  { value: "29", label: "Storey Tower", sub: "Residential High-Rise" },
+  { value: "30", label: "Storey Tower", sub: "Residential High-Rise" },
   { value: "3 BHK", label: "Premium Homes", sub: "Spacious Layouts" },
   { value: "₹1.66 Cr*", label: "Starting Price", sub: "Premium 3 BHK Residences" },
   { value: "1,107+", label: "Sq.Ft Carpet", sub: "Designed for Everyday Comfort" },
