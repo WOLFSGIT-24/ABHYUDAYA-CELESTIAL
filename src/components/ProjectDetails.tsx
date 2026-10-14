@@ -265,7 +265,7 @@ export default function ProjectDetails({ onOpenEnquiry }: ProjectDetailsProps) {
                 <div className="p-4 rounded-xl bg-black/40 border border-white/5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                   <div>
                     <span className="text-[11px] uppercase tracking-wider text-gray-400 font-medium block">
-                      IFSC Code
+                      IFSC Code (Lucknow Branch)
                     </span>
                     <span className="text-lg font-mono font-bold text-[#D4AF37] tracking-wider mt-0.5 block">
                       {projectSnapshot.bankDetails.ifscCode}
@@ -292,7 +292,7 @@ export default function ProjectDetails({ onOpenEnquiry }: ProjectDetailsProps) {
                 {/* Collection Account Name */}
                 <div className="p-4 rounded-xl bg-black/40 border border-white/5">
                   <span className="text-[11px] uppercase tracking-wider text-gray-400 font-medium block">
-                    Collection Account Name
+                    Collection Account Name (COLL A/C)
                   </span>
                   <span className="text-base font-bold text-white tracking-wide mt-0.5 block">
                     {projectSnapshot.bankDetails.collectionAccountName}
@@ -306,7 +306,7 @@ export default function ProjectDetails({ onOpenEnquiry }: ProjectDetailsProps) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                   <div className="p-3.5 rounded-xl bg-black/40 border border-white/5">
                     <span className="text-[10px] uppercase tracking-wider text-gray-400 font-medium block">
-                      Account Name
+                      Name Of The Account
                     </span>
                     <span className="text-xs sm:text-sm font-semibold text-white block mt-0.5">
                       {projectSnapshot.bankDetails.accountName}
@@ -318,7 +318,7 @@ export default function ProjectDetails({ onOpenEnquiry }: ProjectDetailsProps) {
                       Bank Name
                     </span>
                     <span className="text-xs sm:text-sm font-semibold text-white block mt-0.5">
-                      {projectSnapshot.bankDetails.bankName}
+                      {projectSnapshot.bankDetails.bankName} (Lucknow)
                     </span>
                   </div>
                 </div>
@@ -331,7 +331,7 @@ export default function ProjectDetails({ onOpenEnquiry }: ProjectDetailsProps) {
               <div className="flex items-start gap-2.5">
                 <ShieldCheck className="h-4 w-4 text-[#D4AF37] shrink-0 mt-0.5" />
                 <p className="text-[11px] text-gray-300 leading-relaxed font-light">
-                  <strong className="text-white font-medium">Official Payment Notice:</strong> In compliance with UP RERA guidelines, all booking tokens, earnest money, and milestone installments must be made strictly to the official collection account <strong>ABHYUDAYA CELESTIA</strong> at <strong>State Bank of India</strong>.
+                  <strong className="text-white font-medium">Official Payment Notice:</strong> In compliance with UP RERA guidelines, all booking tokens, earnest money, and milestone installments must be made strictly to the official collection account <strong>ABHYUDAYA CELESTIAL</strong> at <strong>State Bank of India</strong>.
                 </p>
               </div>
             </div>

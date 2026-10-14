@@ -76,11 +76,11 @@ export default function TermsModal({ isOpen, onClose }: TermsModalProps) {
               Under statutory directives, all prospective purchasers and allottees must remit booking tokens and construction installments solely to the designated State Bank of India collection account:
             </p>
             <div className="p-3 bg-[#FAF8F5] rounded-xl border border-[#E5DED3] text-xs space-y-1">
-              <p><strong>Bank Name:</strong> {projectSnapshot.bankDetails.bankName}</p>
+              <p><strong>Bank Name:</strong> {projectSnapshot.bankDetails.bankName} (Lucknow)</p>
               <p><strong>Account Name:</strong> {projectSnapshot.bankDetails.accountName}</p>
               <p><strong>Collection Account Name:</strong> {projectSnapshot.bankDetails.collectionAccountName}</p>
               <p><strong>Account Number:</strong> {projectSnapshot.bankDetails.accountNumber}</p>
-              <p><strong>IFSC Code:</strong> {projectSnapshot.bankDetails.ifscCode}</p>
+              <p><strong>IFSC Code:</strong> {projectSnapshot.bankDetails.ifscCode}, LUCKNOW</p>
             </div>
           </div>
 

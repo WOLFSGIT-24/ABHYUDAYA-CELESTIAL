@@ -119,9 +119,12 @@ export default function Footer({ onOpenPrivacy, onOpenTerms, onOpenBooking }: Fo
             </span>
             
             <div className="p-4 rounded-xl bg-white/5 border border-white/10 space-y-2 text-xs">
-              <div className="flex items-center gap-2 text-[#D4AF37] font-semibold">
-                <Landmark className="h-4 w-4" />
-                <span>State Bank of India</span>
+              <div className="flex items-center justify-between text-[#D4AF37] font-semibold">
+                <div className="flex items-center gap-2">
+                  <Landmark className="h-4 w-4" />
+                  <span>State Bank of India</span>
+                </div>
+                <span className="text-[10px] text-gray-400 font-normal">Lucknow</span>
               </div>
               <div className="grid grid-cols-2 gap-2 text-gray-300 text-[11px] pt-1">
                 <div>

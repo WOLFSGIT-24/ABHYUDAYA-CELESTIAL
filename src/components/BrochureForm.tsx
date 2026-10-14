@@ -125,7 +125,7 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
                   Your 3 BHK at Shalimar One World Starts Here
                 </h3>
                 <p className="text-xs text-gray-500 leading-relaxed font-normal">
-                  Explore premium 3 BHK residences at GH-18, Shalimar One World Township, Shaheed Path, Lucknow, starting from ₹1.66 Cr*. Official Launch: 11 June 2025. Connect with our team for certified layouts and site visit scheduling.
+                  Explore premium 3 BHK residences at GH-18, Shalimar One World Township, Shaheed Path, Lucknow, starting from ₹1.66 Cr*. Official Launch: 17th June 2025. Connect with our team for certified layouts and site visit scheduling.
                 </p>
               </div>
 

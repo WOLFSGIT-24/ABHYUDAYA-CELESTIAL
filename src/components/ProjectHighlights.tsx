@@ -37,7 +37,7 @@ export default function ProjectHighlights({ onRequestDownload, onOpenBooking }: 
                 <div className="w-1.5 bg-[#D4AF37] shrink-0" />
                 <div>
                   <h3 className="text-lg font-semibold text-[#000000]">UP RERA Approved & Launched</h3>
-                  <p className="text-sm text-gray-600 mt-1">Registered under UPRERAPRJ414462/06/2025 (Official Launch: 11 June 2025). Fully sanctioned and verifiable on www.up-rera.in.</p>
+                  <p className="text-sm text-gray-600 mt-1">Registered under UPRERAPRJ414462/06/2025 (Official Launch: 17th June 2025). Fully sanctioned and verifiable on www.up-rera.in.</p>
                 </div>
               </div>
               <div className="flex gap-4">
