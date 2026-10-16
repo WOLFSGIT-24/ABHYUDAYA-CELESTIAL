@@ -2,6 +2,7 @@ import React, { useState, useEffect, Suspense, lazy } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import { LeadSubmission } from "./types";
+import { projectSnapshot } from "./data";
 import { motion } from "motion/react";
 
 // Lazy-load below-the-fold components to maximize mobile FCP / LCP performance
@@ -257,7 +258,7 @@ export default function App() {
       {/* Fixed Mobile Bottom CTA Bar */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#000000] border-t border-[#D4AF37]/30 p-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] shadow-[0_-10px_30px_rgba(0,0,0,0.5)] flex items-center gap-2.5">
         <a 
-          href="tel:8867589797" 
+          href={`tel:${projectSnapshot.phoneRaw}`} 
           className="flex-1 flex items-center justify-center gap-2 bg-[#131E33] hover:bg-[#1B2844] text-white font-body text-xs font-bold uppercase tracking-wider py-3.5 rounded-xl transition-all border border-white/10 active:scale-[0.98]"
         >
           <svg className="h-4 w-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -278,7 +279,7 @@ export default function App() {
 
       {/* WhatsApp Floating Button */}
       <a
-        href="https://wa.me/919876543210?text=Hi%2C%20I%20am%20interested%20in%20ARS%20Celestial%20by%20ARS%20Infraa.%20Please%20share%20details."
+        href={`https://wa.me/91${projectSnapshot.phoneRaw}?text=Hi%2C%20I%20am%20interested%20in%20Abhyudaya%20Celestial.%20Please%20share%20details.`}
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-[76px] md:bottom-8 right-4 md:right-8 bg-[#25D366] text-white p-3.5 md:p-4 rounded-full shadow-[0_4px_20px_rgba(37,211,102,0.4)] hover:shadow-[0_8px_30px_rgba(37,211,102,0.6)] hover:scale-110 transition-all z-40 flex items-center justify-center animate-fade-in"

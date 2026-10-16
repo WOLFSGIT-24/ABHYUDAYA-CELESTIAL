@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ShieldCheck, Landmark, Copy, Check, ExternalLink, MapPin, Calendar, Building, FileCheck } from "lucide-react";
+import { ShieldCheck, Landmark, Copy, Check, ExternalLink, MapPin, Calendar, Building, FileCheck, Phone } from "lucide-react";
 import { projectSnapshot } from "../data";
 
 interface ProjectDetailsProps {
@@ -349,14 +349,23 @@ export default function ProjectDetails({ onOpenEnquiry }: ProjectDetailsProps) {
               Our dedicated Abhyudaya relationship desk is available to assist you with priority slots.
             </p>
           </div>
-          {onOpenEnquiry && (
-            <button
-              onClick={onOpenEnquiry}
-              className="bg-[#D4AF37] hover:bg-[#B5952F] text-black font-semibold text-xs sm:text-sm px-6 py-3 rounded-full transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer tracking-wide shrink-0"
+          <div className="flex flex-wrap items-center gap-3 justify-center sm:justify-start">
+            <a
+              href={`tel:${projectSnapshot.phoneRaw}`}
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium text-xs sm:text-sm transition-all shadow-sm active:scale-95"
             >
-              Contact Relationship Manager
-            </button>
-          )}
+              <Phone className="h-4 w-4 text-[#D4AF37]" />
+              <span>Call: {projectSnapshot.phonePrimary}</span>
+            </a>
+            {onOpenEnquiry && (
+              <button
+                onClick={onOpenEnquiry}
+                className="bg-[#D4AF37] hover:bg-[#B5952F] text-black font-semibold text-xs sm:text-sm px-6 py-3 rounded-full transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer tracking-wide shrink-0"
+              >
+                Contact Relationship Manager
+              </button>
+            )}
+          </div>
         </div>
 
       </div>

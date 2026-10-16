@@ -88,13 +88,23 @@ export default function Hero({ onOpenEnquiry, onRequestDownload }: HeroProps) {
           </p>
 
           {/* Action Buttons & Quick Trust Badges */}
-          <div className="pt-2 flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full">
+          <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4 w-full">
             <button
               onClick={onOpenEnquiry}
               className="bg-[#D4AF37] hover:bg-[#B5952F] text-white font-body text-xs sm:text-sm font-semibold px-7 py-3.5 rounded-full border border-white/20 transition-all shadow-[0_10px_25px_rgba(0,0,0,0.3)] hover:scale-105 active:scale-95 cursor-pointer tracking-wide"
             >
               Get Price List & Floor Plans
             </button>
+
+            <a
+              href={`tel:${projectSnapshot.phoneRaw}`}
+              className="inline-flex items-center gap-2 bg-black/40 hover:bg-black/60 backdrop-blur-md px-5 py-3 rounded-full border border-white/20 text-white text-xs sm:text-sm font-semibold transition-all hover:scale-105 active:scale-95 shadow-md"
+            >
+              <svg className="h-4 w-4 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              <span>{projectSnapshot.phonePrimary}</span>
+            </a>
 
             <a
               href="#rera-details"
