@@ -7,6 +7,9 @@ export interface LeadSubmission {
   source: string;
   preferredDate?: string;
   preferredTime?: string;
+  budget?: string;
+  siteVisitDate?: string;
+  purchaseTimeline?: string;
   status: "Pending" | "Contacted" | "Scheduled" | "Completed";
   notes?: string;
 }

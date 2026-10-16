@@ -184,9 +184,15 @@ export default function AdminDashboard({
                     <div className="grid grid-cols-2 gap-x-6 gap-y-1 pl-10 font-body text-xs text-[#4A5260]">
                       <div>📧 {lead.email}</div>
                       <div>📞 {lead.phone}</div>
-                      {lead.preferredDate && (
+                      {lead.budget && (
+                        <div>💰 Budget: <strong className="text-[#0E172A] font-semibold">{lead.budget}</strong></div>
+                      )}
+                      {lead.purchaseTimeline && (
+                        <div>⏳ Finalise: <strong className="text-[#0E172A] font-semibold">{lead.purchaseTimeline}</strong></div>
+                      )}
+                      {(lead.siteVisitDate || lead.preferredDate) && (
                         <div className="col-span-2 text-indigo-600 font-semibold mt-1">
-                          🗓️ Site Walkthrough: {lead.preferredDate} at {lead.preferredTime || "11:00 AM"}
+                          🗓️ Site Visit: {lead.siteVisitDate || lead.preferredDate} {lead.preferredTime ? `at ${lead.preferredTime}` : ""}
                         </div>
                       )}
                       {lead.notes && (

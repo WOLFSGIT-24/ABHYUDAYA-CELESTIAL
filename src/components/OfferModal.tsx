@@ -14,6 +14,9 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
     email: "",
     phone: "",
     unitPreference: "3 BHK (Approx. 1,107 sq. ft.)",
+    budget: "",
+    siteVisitDate: "",
+    purchaseTimeline: "",
     agree: true,
   });
   const [loading, setLoading] = useState(false);
@@ -75,6 +78,15 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
     if (!/^\d{10}$/.test(formData.phone.trim())) {
       newErrors.phone = "Phone number must be exactly 10 digits";
     }
+    if (!formData.budget) {
+      newErrors.budget = "Please select your budget";
+    }
+    if (!formData.siteVisitDate) {
+      newErrors.siteVisitDate = "Please select a site visit date";
+    }
+    if (!formData.purchaseTimeline) {
+      newErrors.purchaseTimeline = "Please select when you plan to finalise";
+    }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -90,9 +102,12 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
       fullName: formData.fullName,
       email: formData.email,
       phone: formData.phone,
+      budget: formData.budget,
+      siteVisitDate: formData.siteVisitDate,
+      purchaseTimeline: formData.purchaseTimeline,
       source: "popup_enquiry_modal",
       status: "Pending",
-      notes: `Preference: ${formData.unitPreference}`,
+      notes: `Preference: ${formData.unitPreference} | Budget: ${formData.budget} | Finalise: ${formData.purchaseTimeline} | Visit: ${formData.siteVisitDate}`,
     });
     
     setLoading(false);
@@ -212,6 +227,68 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
                   <option value="3 BHK + Servant (Approx. 1,428 sq. ft.)">3 BHK + Servant Residence (Approx. 1,428 sq. ft.)</option>
                   <option value="All Configurations">Explore All Configurations</option>
                 </select>
+              </div>
+
+              {/* Budget */}
+              <div className="space-y-1">
+                <label className="block text-xs font-bold font-body text-[#0E172A]">
+                  Budget*
+                </label>
+                <select
+                  id="budget"
+                  name="budget"
+                  required
+                  value={formData.budget}
+                  onChange={handleChange}
+                  className="w-full bg-[#FAF8F5] border border-[#E5DED3] rounded-lg px-3.5 py-2.5 text-sm outline-none focus:border-[#0E172A] focus:bg-white font-body text-[#0E172A]"
+                >
+                  <option value="">Select Budget*</option>
+                  <option value="2.8 Cr">2.8 Cr</option>
+                  <option value="3.5 Cr">3.5 Cr</option>
+                  <option value="5.5 Cr">5.5 Cr</option>
+                  <option value="Above 5.5 Cr">Above 5.5 Cr</option>
+                </select>
+                {errors.budget && <p className="text-red-500 text-[10px]">{errors.budget}</p>}
+              </div>
+
+              {/* Site Visit Date */}
+              <div className="space-y-1">
+                <label className="block text-xs font-bold font-body text-[#0E172A]">
+                  Site Visit Date*
+                </label>
+                <input
+                  type="date"
+                  id="siteVisitDate"
+                  name="siteVisitDate"
+                  required
+                  min={new Date().toISOString().split("T")[0]}
+                  value={formData.siteVisitDate}
+                  onChange={handleChange}
+                  className="w-full bg-[#FAF8F5] border border-[#E5DED3] rounded-lg px-3.5 py-2.5 text-sm outline-none focus:border-[#0E172A] focus:bg-white font-body text-[#0E172A]"
+                />
+                {errors.siteVisitDate && <p className="text-red-500 text-[10px]">{errors.siteVisitDate}</p>}
+              </div>
+
+              {/* When are you planning to finalise */}
+              <div className="space-y-1">
+                <label className="block text-xs font-bold font-body text-[#0E172A]">
+                  When are you planning to finalise?*
+                </label>
+                <select
+                  id="purchaseTimeline"
+                  name="purchaseTimeline"
+                  required
+                  value={formData.purchaseTimeline}
+                  onChange={handleChange}
+                  className="w-full bg-[#FAF8F5] border border-[#E5DED3] rounded-lg px-3.5 py-2.5 text-sm outline-none focus:border-[#0E172A] focus:bg-white font-body text-[#0E172A]"
+                >
+                  <option value="">Select Timeline*</option>
+                  <option value="Immediately (Within 15 Days)">Immediately (Within 15 Days)</option>
+                  <option value="Within 30 Days">Within 30 Days</option>
+                  <option value="Within 1 to 3 Months">Within 1 to 3 Months</option>
+                  <option value="More than 3 Months">More than 3 Months</option>
+                </select>
+                {errors.purchaseTimeline && <p className="text-red-500 text-[10px]">{errors.purchaseTimeline}</p>}
               </div>
 
               <button

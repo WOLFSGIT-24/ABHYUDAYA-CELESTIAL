@@ -19,13 +19,16 @@ export default function DownloadModal({
     fullName: "",
     email: "",
     phone: "",
+    budget: "",
+    siteVisitDate: "",
+    purchaseTimeline: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
     
     let sanitizedValue = value;
@@ -65,6 +68,15 @@ export default function DownloadModal({
     if (!/^\d{10}$/.test(formData.phone.trim())) {
       newErrors.phone = "Phone number must be exactly 10 digits";
     }
+    if (!formData.budget) {
+      newErrors.budget = "Please select your budget";
+    }
+    if (!formData.siteVisitDate) {
+      newErrors.siteVisitDate = "Please select a site visit date";
+    }
+    if (!formData.purchaseTimeline) {
+      newErrors.purchaseTimeline = "Please select when you plan to finalise";
+    }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -78,8 +90,11 @@ export default function DownloadModal({
         fullName: formData.fullName,
         email: formData.email,
         phone: formData.phone,
+        budget: formData.budget,
+        siteVisitDate: formData.siteVisitDate,
+        purchaseTimeline: formData.purchaseTimeline,
         source: "brochure_download_modal",
-        notes: "Requested Abhyudaya Celestial brochure download.",
+        notes: `Budget: ${formData.budget} | Finalise: ${formData.purchaseTimeline} | Visit: ${formData.siteVisitDate}`,
       });
       setLoading(false);
       setSubmitted(true);
@@ -88,7 +103,7 @@ export default function DownloadModal({
       setTimeout(() => {
         onClose();
         setSubmitted(false);
-        setFormData({ fullName: "", email: "", phone: "" });
+        setFormData({ fullName: "", email: "", phone: "", budget: "", siteVisitDate: "", purchaseTimeline: "" });
       }, 2500);
     }, 900);
   };
@@ -195,6 +210,71 @@ export default function DownloadModal({
                   />
                 </div>
                 {errors.phone && <p className="text-red-500 text-[10px] mt-1 absolute -bottom-4">{errors.phone}</p>}
+              </div>
+
+              {/* Budget */}
+              <div className="space-y-1">
+                <label className="text-[9px] font-extrabold text-[#0E172A] uppercase tracking-wider block">
+                  Budget*
+                </label>
+                <div className="border-b border-gray-200 focus-within:border-[#0E172A] py-1">
+                  <select
+                    id="budget"
+                    required
+                    value={formData.budget}
+                    onChange={handleChange}
+                    className="w-full bg-transparent text-xs sm:text-sm font-body outline-none text-[#0E172A]"
+                  >
+                    <option value="">Select Budget*</option>
+                    <option value="2.8 Cr">2.8 Cr</option>
+                    <option value="3.5 Cr">3.5 Cr</option>
+                    <option value="5.5 Cr">5.5 Cr</option>
+                    <option value="Above 5.5 Cr">Above 5.5 Cr</option>
+                  </select>
+                </div>
+                {errors.budget && <p className="text-red-500 text-[10px]">{errors.budget}</p>}
+              </div>
+
+              {/* Site Visit Date */}
+              <div className="space-y-1">
+                <label className="text-[9px] font-extrabold text-[#0E172A] uppercase tracking-wider block">
+                  Site Visit Date*
+                </label>
+                <div className="border-b border-gray-200 focus-within:border-[#0E172A] py-1">
+                  <input
+                    type="date"
+                    id="siteVisitDate"
+                    required
+                    min={new Date().toISOString().split("T")[0]}
+                    value={formData.siteVisitDate}
+                    onChange={handleChange}
+                    className="w-full bg-transparent text-xs sm:text-sm font-body outline-none text-[#0E172A]"
+                  />
+                </div>
+                {errors.siteVisitDate && <p className="text-red-500 text-[10px]">{errors.siteVisitDate}</p>}
+              </div>
+
+              {/* When are you planning to finalise */}
+              <div className="space-y-1">
+                <label className="text-[9px] font-extrabold text-[#0E172A] uppercase tracking-wider block">
+                  When are you planning to finalise?*
+                </label>
+                <div className="border-b border-gray-200 focus-within:border-[#0E172A] py-1">
+                  <select
+                    id="purchaseTimeline"
+                    required
+                    value={formData.purchaseTimeline}
+                    onChange={handleChange}
+                    className="w-full bg-transparent text-xs sm:text-sm font-body outline-none text-[#0E172A]"
+                  >
+                    <option value="">Select Timeline*</option>
+                    <option value="Immediately (Within 15 Days)">Immediately (Within 15 Days)</option>
+                    <option value="Within 30 Days">Within 30 Days</option>
+                    <option value="Within 1 to 3 Months">Within 1 to 3 Months</option>
+                    <option value="More than 3 Months">More than 3 Months</option>
+                  </select>
+                </div>
+                {errors.purchaseTimeline && <p className="text-red-500 text-[10px]">{errors.purchaseTimeline}</p>}
               </div>
 
               <div className="pt-3">

@@ -12,6 +12,9 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
     fullName: "",
     email: "",
     phone: "",
+    budget: "",
+    siteVisitDate: "",
+    purchaseTimeline: "",
     preferredDate: "",
     preferredTime: "",
     source: "Website Landing Page",
@@ -60,6 +63,15 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
     if (!/^\d{10}$/.test(formData.phone.trim())) {
       newErrors.phone = "Phone number must be exactly 10 digits";
     }
+    if (!formData.budget) {
+      newErrors.budget = "Please select your budget";
+    }
+    if (!formData.siteVisitDate) {
+      newErrors.siteVisitDate = "Please select a site visit date";
+    }
+    if (!formData.purchaseTimeline) {
+      newErrors.purchaseTimeline = "Please select when you plan to finalise";
+    }
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -73,10 +85,13 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
         fullName: formData.fullName,
         email: formData.email,
         phone: formData.phone,
-        preferredDate: formData.preferredDate || undefined,
+        budget: formData.budget,
+        siteVisitDate: formData.siteVisitDate,
+        purchaseTimeline: formData.purchaseTimeline,
+        preferredDate: formData.siteVisitDate || undefined,
         preferredTime: formData.preferredTime || undefined,
         source: formData.source,
-        notes: "",
+        notes: `Budget: ${formData.budget} | Finalise: ${formData.purchaseTimeline} | Visit: ${formData.siteVisitDate}`,
       });
 
       setLoading(false);
@@ -191,6 +206,74 @@ export default function BrochureForm({ onAddLead, preselectedUnit }: BrochureFor
                     />
                   </div>
                   {errors.email && <p className="text-red-500 text-[10px]">{errors.email}</p>}
+                </div>
+
+                {/* Qualifying Questions: Budget & Site Visit Date */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {/* Budget */}
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-bold text-[#0E172A] uppercase tracking-wider block">
+                      Budget*
+                    </label>
+                    <div className="border border-[#E5DED3] rounded-lg px-3 py-2 bg-[#FAF8F5] focus-within:border-[#0E172A] focus-within:bg-white transition-all">
+                      <select
+                        id="budget"
+                        required
+                        value={formData.budget}
+                        onChange={handleChange}
+                        className="w-full bg-transparent text-xs sm:text-sm font-body outline-none text-[#0E172A]"
+                      >
+                        <option value="">Select Budget*</option>
+                        <option value="2.8 Cr">2.8 Cr</option>
+                        <option value="3.5 Cr">3.5 Cr</option>
+                        <option value="5.5 Cr">5.5 Cr</option>
+                        <option value="Above 5.5 Cr">Above 5.5 Cr</option>
+                      </select>
+                    </div>
+                    {errors.budget && <p className="text-red-500 text-[10px]">{errors.budget}</p>}
+                  </div>
+
+                  {/* Site Visit Date */}
+                  <div className="space-y-1">
+                    <label className="text-[10px] font-bold text-[#0E172A] uppercase tracking-wider block">
+                      Site Visit Date*
+                    </label>
+                    <div className="border border-[#E5DED3] rounded-lg px-3 py-2 bg-[#FAF8F5] focus-within:border-[#0E172A] focus-within:bg-white transition-all">
+                      <input
+                        type="date"
+                        id="siteVisitDate"
+                        required
+                        min={new Date().toISOString().split("T")[0]}
+                        value={formData.siteVisitDate}
+                        onChange={handleChange}
+                        className="w-full bg-transparent text-xs sm:text-sm font-body outline-none text-[#0E172A]"
+                      />
+                    </div>
+                    {errors.siteVisitDate && <p className="text-red-500 text-[10px]">{errors.siteVisitDate}</p>}
+                  </div>
+                </div>
+
+                {/* When are you planning to finalise */}
+                <div className="space-y-1">
+                  <label className="text-[10px] font-bold text-[#0E172A] uppercase tracking-wider block">
+                    When are you planning to finalise?*
+                  </label>
+                  <div className="border border-[#E5DED3] rounded-lg px-3 py-2 bg-[#FAF8F5] focus-within:border-[#0E172A] focus-within:bg-white transition-all">
+                    <select
+                      id="purchaseTimeline"
+                      required
+                      value={formData.purchaseTimeline}
+                      onChange={handleChange}
+                      className="w-full bg-transparent text-xs sm:text-sm font-body outline-none text-[#0E172A]"
+                    >
+                      <option value="">Select Timeline*</option>
+                      <option value="Immediately (Within 15 Days)">Immediately (Within 15 Days)</option>
+                      <option value="Within 30 Days">Within 30 Days</option>
+                      <option value="Within 1 to 3 Months">Within 1 to 3 Months</option>
+                      <option value="More than 3 Months">More than 3 Months</option>
+                    </select>
+                  </div>
+                  {errors.purchaseTimeline && <p className="text-red-500 text-[10px]">{errors.purchaseTimeline}</p>}
                 </div>
 
 
