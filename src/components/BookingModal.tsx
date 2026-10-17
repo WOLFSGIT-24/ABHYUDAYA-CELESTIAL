@@ -200,7 +200,7 @@ export default function BookingModal({
               {/* Budget */}
               <div className="space-y-1">
                 <label className="text-[10px] font-bold text-[#0E172A] uppercase tracking-wider block">
-                  Budget*
+                  Preferred Budget*
                 </label>
                 <div className="border border-[#E5DED3] rounded-lg px-3 py-2 bg-[#FAF8F5] focus-within:border-[#0E172A] focus-within:bg-white transition-all">
                   <select
@@ -210,11 +210,10 @@ export default function BookingModal({
                     onChange={handleChange}
                     className="w-full bg-transparent text-xs sm:text-sm font-body outline-none text-[#0E172A]"
                   >
-                    <option value="">Select Budget*</option>
-                    <option value="2.8 Cr">2.8 Cr</option>
-                    <option value="3.5 Cr">3.5 Cr</option>
-                    <option value="5.5 Cr">5.5 Cr</option>
-                    <option value="Above 5.5 Cr">Above 5.5 Cr</option>
+                    <option value="">Select Preferred Budget*</option>
+                    <option value="₹1.6 Cr – ₹2 Cr">₹1.6 Cr – ₹2 Cr</option>
+                    <option value="₹2 Cr – ₹2.5 Cr">₹2 Cr – ₹2.5 Cr</option>
+                    <option value="More than ₹2.5 Cr+">More than ₹2.5 Cr+</option>
                   </select>
                 </div>
                 {errors.budget && <p className="text-red-500 text-[10px]">{errors.budget}</p>}

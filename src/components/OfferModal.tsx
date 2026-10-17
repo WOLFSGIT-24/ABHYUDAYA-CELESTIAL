@@ -227,7 +227,7 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
               {/* Budget */}
               <div className="space-y-1">
                 <label className="block text-xs font-bold font-body text-[#0E172A]">
-                  Budget*
+                  Preferred Budget*
                 </label>
                 <select
                   id="budget"
@@ -237,11 +237,10 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
                   onChange={handleChange}
                   className="w-full bg-[#FAF8F5] border border-[#E5DED3] rounded-lg px-3.5 py-2.5 text-sm outline-none focus:border-[#0E172A] focus:bg-white font-body text-[#0E172A]"
                 >
-                  <option value="">Select Budget*</option>
-                  <option value="2.8 Cr">2.8 Cr</option>
-                  <option value="3.5 Cr">3.5 Cr</option>
-                  <option value="5.5 Cr">5.5 Cr</option>
-                  <option value="Above 5.5 Cr">Above 5.5 Cr</option>
+                  <option value="">Select Preferred Budget*</option>
+                  <option value="₹1.6 Cr – ₹2 Cr">₹1.6 Cr – ₹2 Cr</option>
+                  <option value="₹2 Cr – ₹2.5 Cr">₹2 Cr – ₹2.5 Cr</option>
+                  <option value="More than ₹2.5 Cr+">More than ₹2.5 Cr+</option>
                 </select>
                 {errors.budget && <p className="text-red-500 text-[10px]">{errors.budget}</p>}
               </div>
