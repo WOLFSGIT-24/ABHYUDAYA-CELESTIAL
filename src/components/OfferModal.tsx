@@ -111,12 +111,7 @@ export default function OfferModal({ isOpen, onClose, onAddLead }: OfferModalPro
     });
     
     setLoading(false);
-    setSubmitted(true);
-    
-    setTimeout(() => {
-      onClose();
-      setTimeout(() => setSubmitted(false), 300);
-    }, 2500);
+    onClose();
   };
 
   return (

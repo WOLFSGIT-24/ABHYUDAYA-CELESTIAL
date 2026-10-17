@@ -22,7 +22,7 @@ const AdminDashboard = lazy(() => import("./components/AdminDashboard"));
 const PrivacyPolicyModal = lazy(() => import("./components/PrivacyPolicyModal"));
 const TermsModal = lazy(() => import("./components/TermsModal"));
 const OfferModal = lazy(() => import("./components/OfferModal"));
-const DownloadModal = lazy(() => import("./components/DownloadModal"));
+const ThankYou = lazy(() => import("./components/ThankYou"));
 
 const LOCAL_STORAGE_KEY = "silver_horizon_leads";
 
@@ -47,8 +47,20 @@ export default function App() {
   const [termsOpen, setTermsOpen] = useState(false);
   const [offerOpen, setOfferOpen] = useState(false);
   const [preselectedUnit, setPreselectedUnit] = useState<string | null>(null);
-  const [downloadModalOpen, setDownloadModalOpen] = useState(false);
-  const [triggerDownload, setTriggerDownload] = useState(false);
+  const [isThankYou, setIsThankYou] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const p = window.location.pathname.toLowerCase();
+    const s = window.location.search.toLowerCase();
+    return p === "/thank-you" || p === "/thankyou" || p.includes("thank-you") || s.includes("thank-you");
+  });
+  const [submittedLeadData, setSubmittedLeadData] = useState<any>(() => {
+    try {
+      const stored = sessionStorage.getItem("ac_last_lead");
+      return stored ? JSON.parse(stored) : null;
+    } catch {
+      return null;
+    }
+  });
   const [floorPlansUnlocked, setFloorPlansUnlocked] = useState(() => {
     try {
       return localStorage.getItem("silver_horizon_floor_plans_unlocked") === "true";
@@ -56,6 +68,17 @@ export default function App() {
       return false;
     }
   });
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const p = window.location.pathname.toLowerCase();
+      const s = window.location.search.toLowerCase();
+      setIsThankYou(p === "/thank-you" || p === "/thankyou" || p.includes("thank-you") || s.includes("thank-you"));
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   // Read initial cache
   useEffect(() => {
@@ -128,25 +151,31 @@ export default function App() {
     }
     setFloorPlansUnlocked(true);
 
-    if (triggerDownload) {
-      try {
-        window.open("/Brochure.pdf", "_blank");
-        const link = document.createElement("a");
-        link.href = "/Brochure.pdf";
-        link.setAttribute("download", "Silver_Horizon_Brochure.pdf");
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      } catch (e) {
-        console.error("Error triggering PDF download", e);
-      }
-      setTriggerDownload(false);
-    }
+    // Close any open modals
+    setOfferOpen(false);
+    setBookingOpen(false);
+    setPreselectedUnit(null);
+
+    // Save lead data for Thank You Page personalized display
+    setSubmittedLeadData(rawLead);
+    try {
+      sessionStorage.setItem("ac_last_lead", JSON.stringify(rawLead));
+    } catch (e) {}
+
+    // Navigate to /thank-you
+    try {
+      window.history.pushState({}, "", "/thank-you");
+    } catch (e) {}
+    setIsThankYou(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleRequestDownload = () => {
-    setTriggerDownload(true);
-    setDownloadModalOpen(true);
+  const handleBackToHome = () => {
+    try {
+      window.history.pushState({}, "", "/");
+    } catch (e) {}
+    setIsThankYou(false);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleUpdateStatus = (id: string, status: LeadSubmission["status"]) => {
@@ -172,6 +201,14 @@ export default function App() {
     setOfferOpen(true);
   };
 
+  if (isThankYou) {
+    return (
+      <Suspense fallback={<div className="min-h-screen bg-[#070C16]" />}>
+        <ThankYou onBackToHome={handleBackToHome} leadData={submittedLeadData} />
+      </Suspense>
+    );
+  }
+
   return (
     <div className="relative min-h-screen bg-[#000000] text-[#000000] w-full font-body">
       {/* Upper Navigation Header */}
@@ -182,13 +219,11 @@ export default function App() {
         }}
         onToggleAdmin={() => setAdminOpen(!adminOpen)}
         isAdminActive={adminOpen}
-        onRequestDownload={handleRequestDownload}
       />
 
       {/* Hero Entrance Banner */}
       <Hero
         onOpenEnquiry={handleHeroEnquiry}
-        onRequestDownload={handleRequestDownload}
       />
 
       {/* Below-the-fold sections loaded asynchronously */}
@@ -196,7 +231,6 @@ export default function App() {
         {/* Property Architecture & Landmark Overview */}
         <AnimatedSection>
           <IntimateScale 
-            onRequestDownload={handleRequestDownload} 
             onOpenEnquiry={handleHeroEnquiry}
           />
         </AnimatedSection>
@@ -207,7 +241,6 @@ export default function App() {
         <AnimatedSection>
           <ProjectHighlights 
             onOpenBooking={handleHeroEnquiry}
-            onRequestDownload={handleRequestDownload}
           />
         </AnimatedSection>
 
@@ -215,7 +248,6 @@ export default function App() {
         <AnimatedSection>
           <Amenities 
             onOpenBooking={handleHeroEnquiry} 
-            onRequestDownload={handleRequestDownload}
           />
         </AnimatedSection>
 
@@ -253,7 +285,6 @@ export default function App() {
             onOpenPrivacy={() => setPrivacyOpen(true)}
             onOpenTerms={() => setTermsOpen(true)}
             onOpenBooking={handleHeroEnquiry}
-            onRequestDownload={handleRequestDownload}
           />
         </AnimatedSection>
       </Suspense>
@@ -310,14 +341,6 @@ export default function App() {
             }}
             onAddLead={handleAddLead}
             initialUnitType={preselectedUnit}
-          />
-        )}
-
-        {downloadModalOpen && (
-          <DownloadModal
-            isOpen={downloadModalOpen}
-            onClose={() => setDownloadModalOpen(false)}
-            onAddLead={handleAddLead}
           />
         )}
 
